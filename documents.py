@@ -1,13 +1,13 @@
-import os
-from pathlib import Path
+import os, re
+import pandas as pd
 from typing import List
+from pathlib import Path
 from collections import Counter
 import xml.etree.ElementTree as ET
 
-import pandas as pd
+import nltk
 from nltk import PorterStemmer, word_tokenize
 from nltk.corpus import stopwords
-import nltk
 
 # Descargar recursos necesarios de NLTK
 nltk.download('punkt')  # Tokenizador
@@ -16,12 +16,12 @@ nltk.download('stopwords')  # Stopwords
 # Configuración de NLTK
 nltk.download('punkt_tab')
 
-
 # %% md
-# Definimos nuestras funciones de preprocesamiento de tokens y texto. Usamos la librería de `nltk`.
+"""
+Definimos nuestras funciones de preprocesamiento de tokens y texto. Usamos la librería de `nltk`.
+"""
 
 def token_preprocessing(tokens: List[str]) -> List[str]:
-    import re
     """
     Realiza el preprocesamiento de texto, aplicando las siguientes transformaciones:
     1. Convierte todos los tokens a minúsculas.
@@ -72,8 +72,9 @@ def text_preprocessing(text: str) -> List[str]:
 
 
 # %% md
-# Definimos una clase `Document`. Esta nos servirá para almacenar cada uno de los documentos en una estructura que nos permita acceder rápidamente al conteo de sus tokens.
-
+"""
+Definimos una clase `Document`. Esta nos servirá para almacenar cada uno de los documentos en una estructura que nos permita acceder rápidamente al conteo de sus tokens.
+"""
 class Document:
     def __init__(self, text: str, name: str = 'nameless'):
         """
@@ -113,8 +114,9 @@ class Document:
 
 
 # %% md
-# La siguiente función se encarga de cargar los documentos, parsearlos y convertirlos en objetos de tipo `Document`.
-
+"""
+La siguiente función se encarga de cargar los documentos, parsearlos y convertirlos en objetos de tipo `Document`.
+"""
 def load_docs(docs_folder_path: Path) -> List[Document]:
     """
     Carga los documentos (con extensión .naf) en una carpeta especificada y crea objetos Document para cada uno.
