@@ -1,3 +1,17 @@
 .idea
 venv
 data
+/hw02/consolidated_bac.txt
+/hw02/consolidated_news.txt
+/hw02/processed_news.txt
+/hw02/processed_bac.txt
+/hw02/20N_trigrams.pkl
+/hw02/20N_testing.txt
+/hw02/20N_bigrams.pkl
+/hw02/20N_training.txt
+/hw02/20N_unigrams.pkl
+/hw02/BAC_testing.txt
+/hw02/BAC_training.txt
+/hw02/BAC_bigrams.pkl
+/hw02/BAC_trigrams.pkl
+/hw02/BAC_unigrams.pkl
