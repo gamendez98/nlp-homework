@@ -1,6 +1,7 @@
 .idea
 venv
 data
+.venv
 /hw02/consolidated_bac.txt
 /hw02/consolidated_news.txt
 /hw02/processed_news.txt
